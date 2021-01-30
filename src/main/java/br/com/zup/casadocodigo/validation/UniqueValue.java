@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueValue {
 	
-	String message() default "{br.com.zup.beanvalidation.uniquevalue}";
+	String message() default "Item já existe no banco de dados";
 	
 	Class<?>[] groups() default { };
 	

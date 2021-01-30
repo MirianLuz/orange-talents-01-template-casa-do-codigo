@@ -5,12 +5,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import br.com.zup.casadocodigo.validation.UniqueValue;
+
 public class AutorDTO {
 
 	@NotBlank
 	private String nome;
 	
 	@NotBlank @Email @Column(unique = true)
+	@UniqueValue(domainClass = Autor.class, fieldName = "email")
 	private String email;
 	
 	@NotBlank @Size(max = 400)

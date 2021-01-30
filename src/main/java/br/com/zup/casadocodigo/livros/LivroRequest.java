@@ -17,10 +17,12 @@ import br.com.zup.casadocodigo.autores.Autor;
 import br.com.zup.casadocodigo.autores.AutorRepository;
 import br.com.zup.casadocodigo.categorias.Categoria;
 import br.com.zup.casadocodigo.categorias.CategoriaRepository;
+import br.com.zup.casadocodigo.validation.UniqueValue;
 
 public class LivroRequest {
 	
 	@NotBlank @Column(unique=true, nullable = false)
+	@UniqueValue(domainClass = Livro.class, fieldName = "titulo")
 	private String titulo;
 	
 	@NotBlank @Size(max = 500)
