@@ -1,12 +1,13 @@
 package br.com.zup.casadocodigo.categorias;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+
+import br.com.zup.casadocodigo.validation.UniqueValue;
 
 public class CategoriaDTO {
 	
 	@NotBlank
-	@Column(unique = true)
+	@UniqueValue(domainClass = Categoria.class, fieldName = "nome")
 	private String nome;
 	
 	public CategoriaDTO() {
