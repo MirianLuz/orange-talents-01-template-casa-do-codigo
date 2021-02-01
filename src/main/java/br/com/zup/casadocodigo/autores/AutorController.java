@@ -3,14 +3,10 @@ package br.com.zup.casadocodigo.autores;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.zup.casadocodigo.validation.EmailDuplicadoValidator;
 
 @RestController
 @RequestMapping("/autores")
@@ -18,14 +14,6 @@ public class AutorController {
 
 	@Autowired
 	public AutorRepository autorRepository;
-	
-	@Autowired
-	private EmailDuplicadoValidator emailDuplicadoValidator;
-	
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		binder.addValidators(emailDuplicadoValidator);
-	}
 	
 	@PostMapping
 	public String cadastrar(@RequestBody @Valid AutorDTO dto) {
